@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-flask-service
+spec:
+  selector:
+    app: my-flask-app
+  ports:
+  - protocol: TCP
+    port: 5000 # Port exposed externally
+    targetPort: 5000 # Port the container listens on
+  type: LoadBalancer # Exposes the service externally (minikube tunnel required)

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-flask-deployment
+spec:
+  replicas: 2 # Number of pods (containers)
+  selector:
+    matchLabels:
+      app: my-flask-app
+  template:
+    metadata:
+      labels:
+        app: my-flask-app
+    spec:
+      containers:
+      - name: my-flask-container
+        image: my-flask-app:v1  # Use the tagged image
+        ports:
+        - containerPort: 5000
